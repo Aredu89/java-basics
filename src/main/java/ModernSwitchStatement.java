@@ -25,7 +25,7 @@ public class ModernSwitchStatement {
             case ComputerType.SMARTPHONE -> "Smartphone computer type";
             case ComputerType.TABLET -> "tablet computer type";
             case ComputerType.DESKTOP, ComputerType.COMPUTER -> "desktop computer type";
-            default -> "Unknown computer type";
+            // default -> "Unknown computer type";
         };
 
         System.out.println(description);
