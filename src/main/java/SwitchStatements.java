@@ -16,6 +16,10 @@ public class SwitchStatements {
             case "tablet":
                 System.out.println("tablet computer type");
                 break;
+            case "desktop":
+            case "computer":
+                System.out.println("Desktop computer type");
+                break;
             default:
                 System.out.println("Computer type unknown");
                 break;
