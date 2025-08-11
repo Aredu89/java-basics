@@ -7,6 +7,8 @@ public class SwitchStatements {
         System.out.print("Enter your computer type: ");
         String computerType = scanner.nextLine();
 
+        computerType = computerType.toLowerCase();
+
         switch(computerType) {
             case "smartphone":
                 System.out.println("Smartphone computer type");
