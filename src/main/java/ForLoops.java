@@ -15,6 +15,7 @@ public class ForLoops {
 
         //While loops
         boolean done = false;
+        int whileTimes = 0;
         while(!done) {
             System.out.println("While Loop");
             System.out.print("Are we done? Y/N: ");
@@ -26,6 +27,12 @@ public class ForLoops {
             }
 
             System.out.println();
+
+            // Break the loop if we went through it 4 time
+            whileTimes++;
+            if(whileTimes > 3) {
+                break;
+            }
         }
 
         // Do While loop
