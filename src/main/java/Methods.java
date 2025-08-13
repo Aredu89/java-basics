@@ -1,13 +1,16 @@
 public class Methods {
     public static void main(String[] args) {
-        helloWorld(3);
+        String printedMessage = helloWorld(3);
+        System.out.println(printedMessage);
     }
 
     //Overload method
-    static void helloWorld(int count) {
+    static String helloWorld(int count) {
         for(int i=1; i <= count; i++) {
             helloWorld();
         };
+
+        return "Message printed " + count + " times";
     };
 
     static void helloWorld() {
