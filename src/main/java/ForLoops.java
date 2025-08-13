@@ -37,7 +37,14 @@ public class ForLoops {
 
         // Do While loop
         boolean done2 = false;
+        int times2 = 0;
         do {
+            // Skip the rest of the block and keep looping
+            times2++;
+            if(times2 == 2) {
+                continue;
+            }
+            System.out.println("Times in loop:" + times2);
             System.out.println("Do While Loop");
             System.out.print("Are we done? Y/N: ");
 
