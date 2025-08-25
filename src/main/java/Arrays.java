@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Arrays {
     public static void main(String[] args) {
         String[] colors = { "Green", "Bluer", "Red", "Yellow", "Black" };
@@ -9,5 +11,29 @@ public class Arrays {
         for(String el : colors) {
             System.out.println(el);
         }
+
+        // Initialization
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("How many grades will you enter?: ");
+        int numGrades = scanner.nextInt();
+
+        System.out.println();
+
+        //Initialize array
+        double[] userInputGrades = new double[numGrades];
+
+        for(int i=0; i < userInputGrades.length; i++) {
+            System.out.print("Enter grade number " + (i + 1) +": ");
+            userInputGrades[i] = scanner.nextDouble();
+        }
+
+        System.out.println("Grades entered:");
+        int gradeNum = 1;
+        for(double el : userInputGrades) {
+            System.out.println("Grade " + gradeNum + ": " + el);
+            gradeNum ++;
+        }
+
+        scanner.close();
     }
 }
