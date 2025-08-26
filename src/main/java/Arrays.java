@@ -34,6 +34,20 @@ public class Arrays {
             gradeNum ++;
         }
 
+        System.out.println();
+
+        double gradeAverage = computeGradeAverage(userInputGrades);
+        System.out.println("The average is: " + gradeAverage);
         scanner.close();
+    }
+
+    public static double computeGradeAverage(double[] grades) {
+        double sum = 0.0;
+
+        for(double el : grades) {
+            sum += el;
+        };
+
+        return sum / grades.length;
     }
 }
