@@ -1,6 +1,7 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class Arrays {
+public class ArraysDemo {
     public static void main(String[] args) {
         String[] colors = { "Green", "Bluer", "Red", "Yellow", "Black" };
         // Enhanced for example
@@ -20,7 +21,9 @@ public class Arrays {
         System.out.println();
 
         double gradeAverage = computeGradeAverage(userInput);
+        Arrays.sort(userInput);
         System.out.println("The average is: " + gradeAverage);
+        System.out.println("The highest grade is: " + userInput[userInput.length - 1]);
     }
 
     public static double computeGradeAverage(double[] grades) {
