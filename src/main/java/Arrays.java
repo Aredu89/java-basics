@@ -3,15 +3,37 @@ import java.util.Scanner;
 public class Arrays {
     public static void main(String[] args) {
         String[] colors = { "Green", "Bluer", "Red", "Yellow", "Black" };
-        for (int i=0; i < colors.length; i++) {
-            System.out.println(colors[i]);
-        }
-        System.out.println();
         // Enhanced for example
         for(String el : colors) {
             System.out.println(el);
         }
 
+        double[] userInput = getGradesFromUserInput();
+
+        System.out.println("Grades entered:");
+        int gradeNum = 1;
+        for(double el : userInput) {
+            System.out.println("Grade " + gradeNum + ": " + el);
+            gradeNum ++;
+        }
+
+        System.out.println();
+
+        double gradeAverage = computeGradeAverage(userInput);
+        System.out.println("The average is: " + gradeAverage);
+    }
+
+    public static double computeGradeAverage(double[] grades) {
+        double sum = 0.0;
+
+        for(double el : grades) {
+            sum += el;
+        };
+
+        return sum / grades.length;
+    }
+
+    public static double[] getGradesFromUserInput() {
         // Initialization
         Scanner scanner = new Scanner(System.in);
         System.out.print("How many grades will you enter?: ");
@@ -26,28 +48,7 @@ public class Arrays {
             System.out.print("Enter grade number " + (i + 1) +": ");
             userInputGrades[i] = scanner.nextDouble();
         }
-
-        System.out.println("Grades entered:");
-        int gradeNum = 1;
-        for(double el : userInputGrades) {
-            System.out.println("Grade " + gradeNum + ": " + el);
-            gradeNum ++;
-        }
-
-        System.out.println();
-
-        double gradeAverage = computeGradeAverage(userInputGrades);
-        System.out.println("The average is: " + gradeAverage);
         scanner.close();
-    }
-
-    public static double computeGradeAverage(double[] grades) {
-        double sum = 0.0;
-
-        for(double el : grades) {
-            sum += el;
-        };
-
-        return sum / grades.length;
+        return userInputGrades;
     }
 }
