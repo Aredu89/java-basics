@@ -20,6 +20,22 @@ public class NumberGuessingGame {
 
         for(int i=maxAttempts; i > 0; i--) {
             System.out.print("Guess a number between 1 and " + upperBound + ": ");
+            int theGuess = scanner.nextInt();
+
+            won = (theGuess == secretNumber);
+            if(won) {
+                System.out.println("Success! you guessed the secret number: " + secretNumber);
+                break;
+            } else {
+                System.out.println("Sorry, your guess is incorrect.");
+                System.out.println("You have " + (i-1) + "attempt(s) left.");
+                System.out.println();
+            }
         }
+        if(!won) {
+            System.out.println("You did not win. The secret number was: " + secretNumber);
+        }
+
+        scanner.close();
     }
 }
