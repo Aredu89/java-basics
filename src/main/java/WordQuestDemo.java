@@ -1,23 +1,29 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public class WordQuestDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        String secretWord = getRandomWord();
+        String dataFilePath = "data/sample-words.txt";
+        String secretWord = getRandomWord(dataFilePath);
         int maxAttempts = 10;
 
         char[] gameBoard = new char[secretWord.length()];
-        Arrays.fill(gameBoard, '_');
+        final char EMPTY_PLACE_HOLDER = '_';
+        Arrays.fill(gameBoard, EMPTY_PLACE_HOLDER);
 
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("WELCOME TO WORD QUEST");
 
-        boolean wordNotReveal = true;
+        boolean hasMissingLetters = true;
 
-        while(maxAttempts > 0 && wordNotReveal) {
+        while(maxAttempts > 0 && hasMissingLetters) {
             System.out.print("Current word: ");
             System.out.println(gameBoard);
 
@@ -40,7 +46,7 @@ public class WordQuestDemo {
             if(isGuessCorrect) {
                 System.out.println("Good job! You found a match!");
 
-                wordNotReveal = containsUnderscore(gameBoard);
+                hasMissingLetters = containsEmptyChars(gameBoard, EMPTY_PLACE_HOLDER);
             } else {
                 System.out.println("Incorrect");
                 maxAttempts--;
@@ -51,7 +57,7 @@ public class WordQuestDemo {
         }
 
         // End of game
-        if(wordNotReveal) {
+        if(hasMissingLetters) {
             System.out.println("You ran out of attempts. The secret word was: " + secretWord);
         } else {
             System.out.println("Success!! You revealed the secret word: " + secretWord);
@@ -60,8 +66,9 @@ public class WordQuestDemo {
         scanner.close();
     }
 
-    private static String getRandomWord() {
-        String[] words = {"Java", "Airplane", "Friend"};
+    private static String getRandomWord(String dataFilePath) throws IOException {
+        List<String> linesList = Files.readAllLines(Path.of(dataFilePath));
+        String[] words = linesList.toArray(new String[0]);
 
         Random random = new Random();
         int index = random.nextInt(words.length);
@@ -71,9 +78,9 @@ public class WordQuestDemo {
         return theWord.toUpperCase();
     }
 
-    private static boolean containsUnderscore(char[] gameBoard) {
+    private static boolean containsEmptyChars(char[] gameBoard, char emptyPlaceHolder) {
         for(char temp : gameBoard) {
-            if(temp == '_') {
+            if(temp == emptyPlaceHolder) {
                 return true;
             }
         }
