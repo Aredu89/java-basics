@@ -1,7 +1,7 @@
 public class Enemy {
     private String typeOfEnemy;
-    private int healthPoints = 10;
-    private int attackDamage = 1;
+    private int healthPoints;
+    private int attackDamage;
 
     public String getTypeOfEnemy() {
         return typeOfEnemy;
