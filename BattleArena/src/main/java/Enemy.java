@@ -3,6 +3,12 @@ public class Enemy {
     private int healthPoints;
     private int attackDamage;
 
+    public Enemy (String typeOfEnemy, int healthPoints, int attackDamage) {
+        this.typeOfEnemy = typeOfEnemy;
+        this.healthPoints = healthPoints;
+        this.attackDamage = attackDamage;
+    };
+
     public String getTypeOfEnemy() {
         return typeOfEnemy;
     }
