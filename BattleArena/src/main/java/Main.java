@@ -1,10 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        Enemy zombie = new Enemy("Zombie", 10, 1);
-        Enemy ogre = new Enemy("Ogre", 20, 3);
+        Zombie zombie = new Zombie(10, 1);
+        Enemy ogre = new Enemy(20, 3);
 
-        System.out.println(zombie.getTypeOfEnemy() + " has " + zombie.getHealthPoints() + " health points and can do an attack of " + zombie.getAttackDamage());
-        System.out.println(ogre.getTypeOfEnemy() + " has " + ogre.getHealthPoints() + " health points and can do an attack of " + ogre.getAttackDamage());
+        System.out.println("Enemy has " + zombie.getHealthPoints() + " health points and can do an attack of " + zombie.getAttackDamage());
+        System.out.println("Enemy has " + ogre.getHealthPoints() + " health points and can do an attack of " + ogre.getAttackDamage());
 
         zombie.talk();
         zombie.walkForward();
