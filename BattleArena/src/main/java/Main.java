@@ -3,19 +3,30 @@ public class Main {
         Zombie zombie = new Zombie(10, 1);
         Ogre ogre = new Ogre(20, 3);
 
-        System.out.println("Enemy has " + zombie.getHealthPoints() + " health points and can do an attack of " + zombie.getAttackDamage());
-        System.out.println("Enemy has " + ogre.getHealthPoints() + " health points and can do an attack of " + ogre.getAttackDamage());
-
-        System.out.println("Ogre Number of Enemies: " + ogre.getNumberOfEnemies());
-        System.out.println("Zombie ID: " + zombie.getId());
-        System.out.println("Ogre ID: " + ogre.getId());
-
-        battle(zombie);
-        battle(ogre);
+        battle(zombie, ogre);
     }
 
-    public static void battle(Enemy e) {
-        e.talk();
-        e.attack();
+    public static void battle(Enemy e1, Enemy e2) {
+        e1.talk();
+        e2.talk();
+
+        while(e1.getHealthPointsRemaining() > 0 && e2.getHealthPointsRemaining() > 0) {
+            System.out.println("-------------");
+            e1.specialAttack();
+            e2.specialAttack();
+            System.out.println("Enemy 1: " + e1.getHealthPointsRemaining() + " HP Left");
+            System.out.println("Enemy 2: " + e2.getHealthPointsRemaining() + " HP Left");
+            e2.attack();
+            e1.setHealthPointsRemaining(e1.getHealthPointsRemaining() - e2.getAttackDamage());
+            e1.attack();
+            e2.setHealthPointsRemaining(e2.getHealthPointsRemaining() - e1.getAttackDamage());
+        }
+
+        System.out.println("------ Final -------");
+        if(e1.getHealthPointsRemaining() > 0) {
+            System.out.println("Enemy 1 wins!");
+        } else {
+            System.out.println("Enemy 2 wins!");
+        }
     }
 }
