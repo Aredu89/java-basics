@@ -6,16 +6,16 @@ public class Main {
         System.out.println("Enemy has " + zombie.getHealthPoints() + " health points and can do an attack of " + zombie.getAttackDamage());
         System.out.println("Enemy has " + ogre.getHealthPoints() + " health points and can do an attack of " + ogre.getAttackDamage());
 
-        zombie.talk();
-        zombie.spreadDisease();
-        zombie.attack();
-
-        ogre.talk();
-        ogre.walkForward();
-
-        System.out.println("Zombie Number of enemies: " + zombie.getNumberOfEnemies());
-        System.out.println("Oger Number of Enemies: " + ogre.getNumberOfEnemies());
+        System.out.println("Ogre Number of Enemies: " + ogre.getNumberOfEnemies());
         System.out.println("Zombie ID: " + zombie.getId());
-        System.out.println("Oger ID: " + ogre.getId());
+        System.out.println("Ogre ID: " + ogre.getId());
+
+        battle(zombie);
+        battle(ogre);
+    }
+
+    public static void battle(Enemy e) {
+        e.talk();
+        e.attack();
     }
 }
