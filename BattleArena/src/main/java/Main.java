@@ -3,6 +3,8 @@ public class Main {
         Zombie zombie = new Zombie(10, 1);
         Ogre ogre = new Ogre(20, 3);
 
+        System.out.println("There are " + Enemy.getNumberOfEnemies() + " enemies ready to fight");
+
         battle(zombie, ogre);
     }
 
