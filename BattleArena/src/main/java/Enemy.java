@@ -1,4 +1,4 @@
-public class Enemy implements iEnemy {
+public abstract class Enemy implements iEnemy {
     private int id;
     private int healthPoints;
     private int healthPointsRemaining;
