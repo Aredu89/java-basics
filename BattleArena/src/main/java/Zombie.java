@@ -1,4 +1,4 @@
-public class Zombie extends Enemy {
+public class Zombie extends Enemy implements iZombie {
     public Zombie(int healthPoints, int attackDamage) {
         super(healthPoints, attackDamage);
     }
@@ -17,7 +17,8 @@ public class Zombie extends Enemy {
         }
     }
 
-    public void spreadDisease() {
-        System.out.println("The zombie is trying to spread infection");
+    @Override
+    public void battleStance() {
+        System.out.println("Zombie cracks neck and sticks arms out.");
     }
 }
