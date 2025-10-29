@@ -8,7 +8,34 @@ public class Main {
         zombie.battleStance();
         ogre.stareDown();
 
-        battle(zombie, ogre);
+        //battle(zombie, ogre);
+
+        Weapon weapon = new Weapon("Sword", 5);
+        Hero hero = new Hero(25, 1);
+        hero.setWeapon(weapon);
+        hero.equipWeapon();
+
+        heroBattle(hero, ogre);
+    }
+
+    public static void heroBattle(Hero hero, Enemy enemy) {
+        while(hero.getHealthPointsRemaining() > 0 && enemy.getHealthPointsRemaining() > 0) {
+            System.out.println("---------------------");
+            enemy.specialAttack();
+            System.out.println("Hero: " + hero.getHealthPointsRemaining() + " HP Left");
+            System.out.println("Enemy: " + enemy.getHealthPointsRemaining() + " HP Left");
+            enemy.attack();
+            hero.setHealthPointsRemaining(hero.getHealthPointsRemaining() - enemy.getAttackDamage());
+            hero.attack();
+            enemy.setHealthPointsRemaining(enemy.getHealthPointsRemaining() - hero.getAttackDamage());
+        }
+
+        System.out.println("-----------------------");
+        if(hero.getHealthPointsRemaining() > 0) {
+            System.out.println("Hero wins!");
+        } else {
+            System.out.println("Enemy wins!");
+        }
     }
 
     public static void battle(Enemy e1, Enemy e2) {
