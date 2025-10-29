@@ -1,3 +1,9 @@
+import enemies.Enemy;
+import enemies.individualenemy.Ogre;
+import enemies.individualenemy.Zombie;
+import heros.Hero;
+import heros.weapons.Weapon;
+
 public class Main {
     public static void main(String[] args) {
         Zombie zombie = new Zombie(10, 1);
@@ -46,8 +52,8 @@ public class Main {
             System.out.println("-------------");
             e1.specialAttack();
             e2.specialAttack();
-            System.out.println("Enemy 1: " + e1.getHealthPointsRemaining() + " HP Left");
-            System.out.println("Enemy 2: " + e2.getHealthPointsRemaining() + " HP Left");
+            System.out.println("enemies.Enemy 1: " + e1.getHealthPointsRemaining() + " HP Left");
+            System.out.println("enemies.Enemy 2: " + e2.getHealthPointsRemaining() + " HP Left");
             e2.attack();
             e1.setHealthPointsRemaining(e1.getHealthPointsRemaining() - e2.getAttackDamage());
             e1.attack();
@@ -56,9 +62,9 @@ public class Main {
 
         System.out.println("------ Final -------");
         if(e1.getHealthPointsRemaining() > 0) {
-            System.out.println("Enemy 1 wins!");
+            System.out.println("enemies.Enemy 1 wins!");
         } else {
-            System.out.println("Enemy 2 wins!");
+            System.out.println("enemies.Enemy 2 wins!");
         }
     }
 }

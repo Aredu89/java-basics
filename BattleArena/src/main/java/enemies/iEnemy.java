@@ -1,3 +1,5 @@
+package enemies;
+
 public interface iEnemy {
     void talk();
     void attack();

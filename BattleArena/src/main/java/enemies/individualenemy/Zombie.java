@@ -1,3 +1,7 @@
+package enemies.individualenemy;
+
+import enemies.Enemy;
+
 public class Zombie extends Enemy implements iZombie {
     public Zombie(int healthPoints, int attackDamage) {
         super(healthPoints, attackDamage);

@@ -1,3 +1,5 @@
+package enemies;
+
 public abstract class Enemy implements iEnemy {
     private int id;
     private int healthPoints;

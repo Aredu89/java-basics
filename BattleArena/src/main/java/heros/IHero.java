@@ -1,3 +1,7 @@
+package heros;
+
+import heros.weapons.Weapon;
+
 public interface IHero {
     int getHealthPoints();
     int getHealthPointsRemaining();

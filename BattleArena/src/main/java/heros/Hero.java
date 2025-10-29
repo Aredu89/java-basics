@@ -1,3 +1,7 @@
+package heros;
+
+import heros.weapons.Weapon;
+
 public class Hero implements IHero {
     private int healthPoints;
     private int healthPointsRemaining;

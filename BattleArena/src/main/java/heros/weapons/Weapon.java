@@ -1,3 +1,5 @@
+package heros.weapons;
+
 public class Weapon implements IWeapon {
     private String weaponType;
     private int attackIncrease;

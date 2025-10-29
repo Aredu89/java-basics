@@ -493,7 +493,7 @@ Zilch
 Zinc
 Zipper
 Zodiac
-Zombie
+enemies.individualenemy.Zombie
 Zone
 Zoology
 Zoom

@@ -1,3 +1,7 @@
+package enemies.individualenemy;
+
+import enemies.Enemy;
+
 public class Ogre extends Enemy implements IOgre {
     public Ogre(int healthPoints, int attackDamage) {
         super(healthPoints, attackDamage);
