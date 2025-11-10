@@ -1,3 +1,7 @@
+import java.util.ArrayDeque;
+import java.util.HashSet;
+import java.util.List;
+
 public class Demo {
 
     public static void main(String[] args) {
@@ -23,11 +27,17 @@ public class Demo {
 
         // Deques
         var cards = new ArrayDeque<>();
-        card.add("King");
-        card.add("Queen");
+        cards.add("King");
+        cards.add("Queen");
+        cards.addFirst("Ace");
+        cards.addLast("Jack");
 
         System.out.println(cards);
-        System.out.println(cards.peakFirst());
+        System.out.println(cards.peekFirst());
+        System.out.println(cards.contains("Eric"));
+
+        cards.removeFirst();
+        System.out.println(cards);
     }
 
 }
