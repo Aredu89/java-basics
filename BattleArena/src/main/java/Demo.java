@@ -1,4 +1,5 @@
 import java.util.ArrayDeque;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
@@ -38,6 +39,21 @@ public class Demo {
 
         cards.removeFirst();
         System.out.println(cards);
+
+        // HashMaps
+        var states = new HashMap<String, String>();
+        states.put("California", "CA");
+        states.put("New York", "NY");
+        states.put("Texas", "TX");
+        states.put("Ohio", "OH");
+        states.putIfAbsent("Ohio", "OH");
+        states.putIfAbsent("Washington", "WS");
+        states.replace("Washington", "WA");
+
+        System.out.println(states);
+        System.out.println(states.get("New York"));
+        System.out.println(states.containsKey("Washington"));
+        System.out.println(states.containsValue("Washington"));
     }
 
 }
