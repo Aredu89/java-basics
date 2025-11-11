@@ -54,6 +54,16 @@ public class Demo {
         System.out.println(states.get("New York"));
         System.out.println(states.containsKey("Washington"));
         System.out.println(states.containsValue("Washington"));
+
+        // Error handling
+        String numberString = "One";
+        try {
+            int number = Integer.parseInt(numberString);
+            System.out.println(number);
+        } catch(Exception e) {
+            System.out.println("You cannot parse a string that is not an integer");
+            System.out.println(e);
+        }
     }
 
 }
