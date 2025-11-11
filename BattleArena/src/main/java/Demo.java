@@ -60,8 +60,12 @@ public class Demo {
         try {
             int number = Integer.parseInt(numberString);
             System.out.println(number);
-        } catch(Exception e) {
-            System.out.println("You cannot parse a string that is not an integer");
+        }
+        catch(NullPointerException | NumberFormatException e) {
+            System.out.println("You cannot parse a string that is not a valid int");
+        }
+        catch(Exception e) {
+            System.out.println("Something went wrong");
             System.out.println(e);
         }
     }
