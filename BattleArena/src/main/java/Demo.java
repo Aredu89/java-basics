@@ -68,6 +68,9 @@ public class Demo {
             System.out.println("Something went wrong");
             System.out.println(e);
         }
+        finally {
+            System.out.println("This always runs");
+        }
     }
 
 }
