@@ -5,11 +5,7 @@ import java.io.IOException;
 
 public class ErrorHandling {
     public static void main(String[] args) throws IOException {
-        FileReader fileReader = null;
-        BufferedReader reader = null;
-        try {
-            fileReader = new FileReader("story.txt");
-            reader = new BufferedReader(fileReader);
+        try (BufferedReader reader = new BufferedReader(new FileReader("story.txt"))) {
             String line;
 
             while((line = reader.readLine()) != null) {
@@ -22,11 +18,6 @@ public class ErrorHandling {
         }
         catch (Exception e) {
             System.out.println(e);
-        }
-        finally {
-            if(fileReader != null) {
-                fileReader.close();
-            }
         }
     }
 }
