@@ -1,11 +1,18 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class ErrorHandling {
     public static void main(String[] args) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader("story.txt"))) {
+
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("file.txt"))) {
+            writer.write("Hello world!");
+            writer.newLine();
+            writer.write("This is a simple text file");
+        }
+        catch(IOException e) {
+            System.out.println(e);
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("file.txt"))) {
             String line;
 
             while((line = reader.readLine()) != null) {
@@ -17,7 +24,7 @@ public class ErrorHandling {
             System.out.println(e);
         }
         catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 }
