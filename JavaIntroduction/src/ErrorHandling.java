@@ -1,3 +1,4 @@
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -5,12 +6,14 @@ import java.io.IOException;
 public class ErrorHandling {
     public static void main(String[] args) throws IOException {
         FileReader fileReader = null;
+        BufferedReader reader = null;
         try {
-            fileReader = new FileReader("story.txt");;
-            int character = 0;
+            fileReader = new FileReader("story.txt");
+            reader = new BufferedReader(fileReader);
+            String line;
 
-            while((character = fileReader.read()) != -1) {
-                System.out.print((char) character);
+            while((line = reader.readLine()) != null) {
+                System.out.println(line);
             }
         }
         catch(FileNotFoundException e) {
